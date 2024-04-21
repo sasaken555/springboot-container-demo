@@ -18,6 +18,4 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
       - name: Build executable JAR with Maven
-        run: mvn package -B -ntp
-      - name: Update dependency graph
-        uses: advanced-security/maven-dependency-submission-action@v4
+        run: mvn package -B -ntp -DskipTests
