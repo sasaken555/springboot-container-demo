@@ -31,5 +31,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          tags: ghcr.io/sasaken555/springboot-demo:${{ github.sha }}
+          tags: ghcr.io/sasaken555/springboot-container-demo:${{ github.sha }}
           push: true
