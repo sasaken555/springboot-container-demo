@@ -1,0 +1,23 @@
+name: Build application
+
+on:
+  push:
+    branches:
+      - 'develop'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'
+      - name: Build executable JAR with Maven
+        run: mvn package -B -ntp
+      - name: Update dependency graph
+        uses: advanced-security/maven-dependency-submission-action@v4
